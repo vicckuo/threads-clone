@@ -45,7 +45,7 @@ watchEffect(() => {
 const login = async (prov) => {
   const { data, error } = await client.auth.signInWithOAuth({
     provider: prov,
-    redirectTo: 'https://threads-clone-plum-xi.vercel.app',
+    redirectTo: window.location.origin,
   });
 
   if (error) console.log(error);
