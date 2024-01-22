@@ -45,7 +45,7 @@ watchEffect(() => {
 const login = async (prov) => {
   const { data, error } = await client.auth.signInWithOAuth({
     provider: prov,
-    redirectTo: process.env.PRODUCT_URL,
+    redirectTo: window.location.origin,
   });
 
   if (error) console.log(error);
