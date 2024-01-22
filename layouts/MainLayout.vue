@@ -3,25 +3,28 @@
     id="MainLayout"
     class="h-screen"
   >
-    <div
-      id="TopMenu"
-      class="w-full flex items-center justify-center px-2 h-10 my-2"
-    >
-      <img
-        src="/threads-logo.png"
-        class="w-[35px]"
-        alt=""
-      />
+    <div class="w-full max-w-[500px] mx-auto">
+      <div
+        id="TopMenu"
+        class="w-full flex items-center justify-center px-2 h-10 my-2"
+      >
+        <img
+          class="w-[35px]"
+          src="/threads-logo.png"
+        />
+      </div>
     </div>
+
     <div class="flex w-full max-w-[500px] mx-auto h-screen">
       <slot />
     </div>
+
     <div
       id="BottomNav"
       class="fixed z-50 bottom-0 flex w-full h-[70px] border-t border-t-gray-700 bg-black"
     >
       <div
-        class="flex w-full max-w-[500px] mx-auto items-center justify-around"
+        class="flex w-full max-w-[500px] mx-auto flex items-center justify-around"
       >
         <button
           @click="navigateTo('/')"
@@ -63,6 +66,7 @@
 <script setup>
 import { useUserStore } from '~/stores/user';
 const userStore = useUserStore();
-</script>
 
-<style lang="scss" scoped></style>
+const client = useSupabaseClient();
+const user = useSupabaseUser();
+</script>
